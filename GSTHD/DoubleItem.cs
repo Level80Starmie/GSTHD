@@ -7,7 +7,7 @@ namespace GSTHD
 {
     class DoubleItem : PictureBox
     {
-		private readonly Settings Settings;
+	private readonly Settings Settings;
         List<string> ListImageName;
         bool isMouseDown = false;
         bool isColoredLeft = false;
@@ -16,7 +16,7 @@ namespace GSTHD
 
         public DoubleItem(ObjectPoint data, Settings settings)
         {
-			Settings = settings;
+	    Settings = settings;
             if(data.ImageCollection != null)
                 ListImageName = data.ImageCollection.ToList();
 
