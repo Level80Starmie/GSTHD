@@ -9,6 +9,9 @@ I'm really sorry I haven't wrote any real tutorial yet to explain all the new (a
 ___
 
 ### What's new
+#### Multiple game support
+- Added an ActiveGame value to settings.json. Layout files, Resource files, and places/sometimes hint files should be placed within game-specific folders, IE: move OoT-specific resources and place files into a folder named "oot". Setting ActiveGame to "oot" will then prompt the tracker to pull layouts, resources, "places.json" and "sometimes_hints.json" from the oot directory. This makes for cleaner directory, and easier switching between place files and sometimes hint files.
+
 #### Control scheme changes
 - Left click "progresses" a UI element (e.g. greyed out Hookshot -> Hookshot -> Longshot). Applies to every UI element.
 - Right click "regresses" a UI element (e.g. Longshot -> Hookshot -> greyed out Hookshot). Applies to every UI element.
