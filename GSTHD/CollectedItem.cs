@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -42,7 +42,7 @@ namespace GSTHD
 
             if (ImageNames.Length > 0)
             {
-                Image = Image.FromFile(@"Resources/" + ImageNames[0]);
+                Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ImageNames[0]);
                 Name = ImageNames[0];
                 SizeMode = PictureBoxSizeMode.StretchImage;
                 Size = CollectedItemSize;
