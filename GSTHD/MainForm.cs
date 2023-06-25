@@ -1,4 +1,4 @@
-﻿using GSTHD.Util;
+using GSTHD.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -23,6 +23,7 @@ namespace GSTHD
         LocalSettings LocalSettings;
         Layout ActiveLayout;
         Settings ActiveSettings;
+	
 
         //PictureBox pbox_collectedSkulls;
 
@@ -65,8 +66,10 @@ namespace GSTHD
 
         private void LoadSettings()
         {
-            LocalSettings = LoadLocalSettings();
-            ActiveSettings = new Settings(LocalSettings);
+			LocalSettings = LoadLocalSettings();
+			ActiveSettings = new Settings(LocalSettings);
+			LoadLocalLists();
+
         }
 
         private void LoadMenuBar()
@@ -152,10 +155,16 @@ namespace GSTHD
 
         private LocalSettings LoadLocalSettings()
         {
-            ListPlaces.Clear();
+            return JsonIO.Read<LocalSettings>(LocalSettings.LocalSettingsFileName);
+        }
+		
+		private void LoadLocalLists()
+		{
+			ListPlaces.Clear();
             ListPlaces.Add("");
             ListPlacesWithTag.Clear();
-            JObject json_places = JObject.Parse(File.ReadAllText(@"oot_places.json"));
+			JObject json_places = JObject.Parse(File.ReadAllText(@LocalSettings.ActiveGame+"/places.json"));
+
             foreach (var property in json_places)
             {
                 ListPlaces.Add(property.Key.ToString());
@@ -163,7 +172,7 @@ namespace GSTHD
             }
 
             ListSometimesHintsSuggestions.Clear();
-            JObject json_hints = JObject.Parse(File.ReadAllText(@"sometimes_hints.json"));
+            JObject json_hints = JObject.Parse(File.ReadAllText(@LocalSettings.ActiveGame+"/sometimes_hints.json"));
             foreach (var categorie in json_hints)
             {
                 foreach (var hint in categorie.Value)
@@ -171,9 +180,7 @@ namespace GSTHD
                     ListSometimesHintsSuggestions.Add(hint.ToString());
                 }
             }
-
-            return JsonIO.Read<LocalSettings>(LocalSettings.LocalSettingsFileName);
-        }
+		}
 
         private string FixLayoutPath(string layoutPath)
         {
@@ -182,7 +189,7 @@ namespace GSTHD
                 return layoutPath;
             }
 
-            var fixedPath = $@"Layouts\{layoutPath}.json";
+            var fixedPath = $@"{LocalSettings.ActiveGame}\Layouts\{layoutPath}.json";
             if (File.Exists(fixedPath))
             {
                 return fixedPath;
