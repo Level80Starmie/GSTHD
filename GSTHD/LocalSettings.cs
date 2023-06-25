@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Drawing;
@@ -16,6 +16,7 @@ namespace GSTHD
 
         public bool ShowMenuBar { get; set; } = true;
         public string ActiveLayout { get; set; } = string.Empty;
+		public string ActiveGame { get; set; } = string.Empty;
         public bool InvertScrollWheel { get; set; } = false;
         //public bool WraparoundDungeonNames { get; set; } = true;
         public Settings.DragButtonOption DragButton { get; set; } = Settings.DragButtonOption.Middle;
