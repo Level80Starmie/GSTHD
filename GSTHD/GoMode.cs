@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace GSTHD
 {
     class GoMode : PictureBox
     {
+		private readonly Settings Settings;
         List<string> ListImageName;
         string BackgroundImage;        
         Point FirstLocation;
@@ -20,8 +21,9 @@ namespace GSTHD
         public PictureBox GoModeImage = new PictureBox();
         Size GoModeImageSize;
 
-        public GoMode(ObjectPointGoMode data)
+        public GoMode(ObjectPointGoMode data, Settings settings)
         {
+			Settings = settings;
             tictac = new Timer();
             tictac.Interval = 95;
             tictac.Tick += Tictac_Tick;
@@ -39,7 +41,7 @@ namespace GSTHD
             if(ListImageName.Count > 0)
             {
                 GoModeImage.Name = ListImageName[0];
-                GoModeImage.Image = Image.FromFile(@"Resources/" + ListImageName[0]);
+                GoModeImage.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
                 GoModeImage.SizeMode = PictureBoxSizeMode.StretchImage;
                 GoModeImage.Size = this.GoModeImageSize;
             }                        
