@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Activities.Expressions;
@@ -153,7 +153,7 @@ namespace GSTHD
                         {
                             var obj = JsonConvert.DeserializeObject<ObjectPoint>(element.ToString());
                             if (obj.Visible)
-                                Controls.Add(new DoubleItem(obj));
+                                Controls.Add(new DoubleItem(obj, activeSettings));
                         }
                         break;
 
@@ -187,7 +187,7 @@ namespace GSTHD
                         {
                             var obj = JsonConvert.DeserializeObject<ObjectPoint>(element.ToString());
                             if (obj.Visible)
-                                Controls.Add(new GuaranteedHint(obj));
+                                Controls.Add(new GuaranteedHint(obj, activeSettings));
                         }
                         break;
 
@@ -284,7 +284,7 @@ namespace GSTHD
                             var obj = JsonConvert.DeserializeObject<ObjectPointGoMode>(element.ToString());
                             if (obj.Visible)
                             {
-                                var gomode = new GoMode(obj);
+                                var gomode = new GoMode(obj, activeSettings);
                                 Controls.Add(gomode);
                                 gomode.SetLocation();
                             }
