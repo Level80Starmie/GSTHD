@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,14 +7,16 @@ namespace GSTHD
 {
     class DoubleItem : PictureBox
     {
+		private readonly Settings Settings;
         List<string> ListImageName;
         bool isMouseDown = false;
         bool isColoredLeft = false;
         bool isColoredRight = false;
         Size DoubleItemSize;
 
-        public DoubleItem(ObjectPoint data)
+        public DoubleItem(ObjectPoint data, Settings settings)
         {
+			Settings = settings;
             if(data.ImageCollection != null)
                 ListImageName = data.ImageCollection.ToList();
 
@@ -23,7 +25,7 @@ namespace GSTHD
             if (ListImageName.Count > 0)
             {
                 this.Name = ListImageName[0];
-                this.Image = Image.FromFile(@"Resources/" + ListImageName[0]);
+                this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
                 this.SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Size = DoubleItemSize;
             }
@@ -43,25 +45,25 @@ namespace GSTHD
             {
                 if (!isColoredLeft && !isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[1]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[1]);
                     this.Name = ListImageName[1];
                     isColoredLeft = true;
                 }
                 else if (isColoredLeft && !isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[0]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
                     this.Name = ListImageName[0];
                     isColoredLeft = false;
                 }
                 else if (!isColoredLeft && isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[3]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[3]);
                     this.Name = ListImageName[3];
                     isColoredLeft = true;
                 }
                 else if (isColoredLeft && isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[2]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[2]);
                     this.Name = ListImageName[2];
                     isColoredLeft = false;
                 }
@@ -71,25 +73,25 @@ namespace GSTHD
             {
                 if (!isColoredLeft && !isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[2]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[2]);
                     this.Name = ListImageName[2];
                     isColoredRight = true;
                 }
                 else if (isColoredLeft && !isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[3]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[3]);
                     this.Name = ListImageName[3];
                     isColoredRight = true;
                 }
                 else if (!isColoredLeft && isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[0]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
                     this.Name = ListImageName[0];
                     isColoredRight = false;
                 }
                 else if (isColoredLeft && isColoredRight)
                 {
-                    this.Image = Image.FromFile(@"Resources/" + ListImageName[1]);
+                    this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[1]);
                     this.Name = ListImageName[1];
                     isColoredRight = false;
                 }
