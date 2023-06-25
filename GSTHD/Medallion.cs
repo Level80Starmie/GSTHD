@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -144,7 +144,7 @@ namespace GSTHD
 
         private void UpdateImage()
         {
-            Image = Image.FromFile(@"Resources/" + ImageNames[ImageIndex]);
+            Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ImageNames[ImageIndex]);
         }
 
         public int GetState()
