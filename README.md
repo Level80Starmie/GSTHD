@@ -3,7 +3,9 @@ Fork of Hapax (`Hapax#1729`)'s [Fork](https://github.com/HapaxL/GSTHD/tree/maste
 
 Forked to add some extendibility for the tracker across multiple games. **Work in progress.**
 
-## [>>> Get the latest release <<<](https://github.com/HapaxL/GSTHD/releases/latest)
+## [>>> Get the latest release of this extended version <<<](https://github.com/Level80Starmie/GSTHD/releases/tag/latest)
+
+## [>>> Get the latest release of the original <<<](https://github.com/HapaxL/GSTHD/releases/latest)
 
 I'm really sorry I haven't wrote any real tutorial yet to explain all the new (and old) stuff, I will write one soon!! In the meantime feel free to ask me about anything in here or (preferably) on Discord (`Hapax#1729`). Small tutorials for individual features are already partially available in the description of many of the releases (link above), be sure to check it out!
 ___
