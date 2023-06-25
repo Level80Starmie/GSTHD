@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -119,11 +119,11 @@ namespace GSTHD
         {
             if (HoldsImage)
             {
-                Image = Image.FromFile(@"Resources/" + HeldImageName);
+                Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + HeldImageName);
             }
             else
             {
-                Image = Image.FromFile(@"Resources/" + ImageNames[ImageIndex]);
+                Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ImageNames[ImageIndex]);
             }
         }
 
@@ -341,7 +341,7 @@ namespace GSTHD
 
         private void UpdateImage()
         {
-            Image = Image.FromFile(@"Resources/" + ImageNames[ImageIndex]);
+            Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ImageNames[ImageIndex]);
         }
 
         private void Mouse_Move(object sender, MouseEventArgs e)
