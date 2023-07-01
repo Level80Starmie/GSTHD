@@ -114,7 +114,7 @@ namespace GSTHD
             }
 
             var pbox = (PictureBox)sender;
-            pbox.Image = Image.FromFile(@"Resources/" + ListImageName[imageIndex]);
+            pbox.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
             pbox.Name = ListImageName[imageIndex];
             pbox.Size = GoModeImageSize;
             
