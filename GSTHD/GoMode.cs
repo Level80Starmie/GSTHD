@@ -127,7 +127,7 @@ namespace GSTHD
             else
             {
                 this.Name = BackgroundImage;
-                this.Image = Image.FromFile(@"Resources/" + BackgroundImage);
+                this.Image = Image.FromFile(@Settings.ActiveGame+"/Resources/" + ListImageName[0]);
                 this.Size = new Size(this.Image.Width, this.Image.Height);
             }
 
